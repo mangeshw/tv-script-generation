@@ -1,1 +1,5 @@
 tv-script-generation
+in tokens we used '--' in token_dict instead of '-'
+in tokens we have '\n' as a token, so if we replace it we wont be able to split 
+tokenized text with lines
+There are targets instead of labels
