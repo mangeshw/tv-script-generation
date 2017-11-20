@@ -12197,7 +12197,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement Function</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="c1">#print(inputs.name)</span>
     <span class="n">targets</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;targets&quot;</span><span class="p">)</span>
     <span class="n">lr</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;lr&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">lr</span>
@@ -12222,8 +12222,7 @@ Barney_Gumble: Yeah, you should only drink to enhance your social skills.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>input:0
-Tests Passed
+<pre>Tests Passed
 </pre>
 </div>
 </div>
@@ -12267,7 +12266,7 @@ Tests Passed
     <span class="n">initial_state</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">zero_state</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
     <span class="n">initial_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">initial_state</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;initial_state&#39;</span><span class="p">)</span>
     <span class="c1">#self.initial_state = initial_state</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">initial_state</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="c1">#print(initial_state.name)</span>
     <span class="k">return</span> <span class="n">cell</span><span class="p">,</span> <span class="n">initial_state</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -12290,8 +12289,7 @@ Tests Passed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>initial_state:0
-Tests Passed
+<pre>Tests Passed
 </pre>
 </div>
 </div>
@@ -12386,7 +12384,7 @@ Tests Passed
     <span class="c1"># TODO: Implement Function</span>
     <span class="n">output</span><span class="p">,</span> <span class="n">final_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dynamic_rnn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
     <span class="n">final_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">final_state</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;final_state&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">final_state</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="c1">#print(final_state.name)</span>
     <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">final_state</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -12409,8 +12407,7 @@ Tests Passed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>final_state:0
-Tests Passed
+<pre>Tests Passed
 </pre>
 </div>
 </div>
@@ -12452,21 +12449,7 @@ Tests Passed
     <span class="c1"># TODO: Implement Function</span>
     <span class="n">embed</span> <span class="o">=</span> <span class="n">get_embed</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">)</span>
     <span class="n">output</span><span class="p">,</span> <span class="n">final_state</span> <span class="o">=</span> <span class="n">build_rnn</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">embed</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rnn is built&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">input_data</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">final_state</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">rnn_size</span><span class="p">)</span>
-    
-    <span class="c1">#relu_w = tf.Variable(tf.truncated_normal((rnn_size, vocab_size)))</span>
-    <span class="c1">#relu_b = tf.Variable(tf.zeros([vocab_size]))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weights and biases initialized&#39;</span><span class="p">)</span>
-    <span class="c1">#logits = tf.matmul(input_data, softmax_w) + softmax_b</span>
     <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;logits created&#39;</span><span class="p">)</span>
-    <span class="c1">#out = tf.nn.softmax(logits, name=&#39;predictions&#39;)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;softmax done&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">final_state</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -12489,17 +12472,7 @@ Tests Passed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>final_state:0
-rnn is built
-(128, 5)
-(128, 5, 256)
-(2, 2, ?, 256)
-27
-256
-weights and biases initialized
-logits created
-softmax done
-Tests Passed
+<pre>Tests Passed
 </pre>
 </div>
 </div>
@@ -12569,18 +12542,8 @@ Tests Passed
     <span class="c1"># Keep only enough characters to make full batches</span>
     <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_text</span><span class="p">[:</span> <span class="n">n_batches</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">seq_length</span><span class="p">])</span>
     <span class="n">y_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">int_text</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span> <span class="n">n_batches</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">seq_length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;int_text length: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">int_text</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_batches: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_batches</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;batch_size: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">batch_size</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;seq_length: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">seq_length</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_batches * batch_size * seq_length: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_batches</span> <span class="o">*</span> <span class="n">batch_size</span> <span class="o">*</span> <span class="n">seq_length</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_data: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_data</span><span class="p">)))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_batches: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_batches</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_data[-1]: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y_data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
     <span class="c1">### take first element of x to last element of y</span>
     <span class="n">y_data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    
     
     <span class="c1">### reshaping it to number of batches , -1 because dimension is taken care by iteself</span>
     <span class="n">x_data</span> <span class="o">=</span> <span class="n">x_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -12616,16 +12579,7 @@ Tests Passed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>int_text length: 5000
-n_batches: 7
-batch_size: 128
-seq_length: 5
-n_batches * batch_size * seq_length: 4480
-y_data: 4480
-n_batches: 7
-y_data[-1]: 4480
-(4480,)
-Tests Passed
+<pre>Tests Passed
 </pre>
 </div>
 </div>
@@ -12654,23 +12608,23 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of Epochs</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="c1"># Batch Size</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># RNN Size</span>
-<span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">rnn_size</span> <span class="o">=</span> <span class="mi">150</span>
 <span class="c1"># Embedding Dimension Size</span>
 <span class="n">embed_dim</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="c1"># Sequence Length</span>
-<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">seq_length</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="c1"># Learning Rate</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.013</span>
 <span class="c1"># Show stats for every n number of batches</span>
-<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">50</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
@@ -12694,7 +12648,7 @@ Tests Passed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -12742,19 +12696,7 @@ Tests Passed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>input:0
-initial_state:0
-final_state:0
-rnn is built
-(?, ?)
-(?, ?, 256)
-(1, 2, ?, 256)
-6780
-256
-weights and biases initialized
-logits created
-softmax done
-probs:0
+<pre>probs:0
 </pre>
 </div>
 </div>
@@ -12774,7 +12716,7 @@ probs:0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -12798,10 +12740,10 @@ probs:0
                 <span class="n">initial_state</span><span class="p">:</span> <span class="n">state</span><span class="p">,</span>
                 <span class="n">lr</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">}</span>
             
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;initial_state: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">initial_state</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;feed.shape: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feed</span><span class="p">)))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cost: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cost</span><span class="p">))</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;final_state: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">final_state</span><span class="p">))</span>
+            <span class="c1">#print(&#39;initial_state: &#39; + str(initial_state))</span>
+            <span class="c1">#print(&#39;feed.shape: &#39; + str(len(feed)))</span>
+            <span class="c1">#print(&#39;cost: &#39; + str(cost))</span>
+            <span class="c1">#print(&#39;final_state: &#39; + str(final_state))</span>
             <span class="c1">#print(&#39;train_op: &#39; + str(train_op))</span>
             <span class="n">train_loss</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">cost</span><span class="p">,</span> <span class="n">final_state</span><span class="p">,</span> <span class="n">train_op</span><span class="p">],</span> <span class="n">feed</span><span class="p">)</span>
     
@@ -12831,452 +12773,60 @@ probs:0
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>69101
-128
-5
-int_text length: 69101
-n_batches: 107
-batch_size: 128
-seq_length: 5
-n_batches * batch_size * seq_length: 68480
-y_data: 68480
-n_batches: 107
-y_data[-1]: 235
-(68480,)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch    0/107   train_loss = 8.823
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   16/107   train_loss = 6.948
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   32/107   train_loss = 6.177
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   48/107   train_loss = 5.633
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   64/107   train_loss = 5.628
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   80/107   train_loss = 5.410
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-Epoch   0 Batch   96/107   train_loss = 5.469
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
-initial_state: Tensor(&#34;initial_state:0&#34;, shape=(1, 2, ?, 256), dtype=int32)
-feed.shape: 4
-cost: Tensor(&#34;sequence_loss/truediv:0&#34;, shape=(), dtype=float32)
-final_state: Tensor(&#34;final_state:0&#34;, shape=(1, 2, ?, 256), dtype=float32)
+256
+10
+Epoch   0 Batch    0/26   train_loss = 8.825
+Epoch   1 Batch   24/26   train_loss = 5.973
+Epoch   3 Batch   22/26   train_loss = 5.571
+Epoch   5 Batch   20/26   train_loss = 5.377
+Epoch   7 Batch   18/26   train_loss = 5.115
+Epoch   9 Batch   16/26   train_loss = 4.732
+Epoch  11 Batch   14/26   train_loss = 4.679
+Epoch  13 Batch   12/26   train_loss = 4.477
+Epoch  15 Batch   10/26   train_loss = 4.251
+Epoch  17 Batch    8/26   train_loss = 4.228
+Epoch  19 Batch    6/26   train_loss = 4.120
+Epoch  21 Batch    4/26   train_loss = 3.897
+Epoch  23 Batch    2/26   train_loss = 3.841
+Epoch  25 Batch    0/26   train_loss = 3.741
+Epoch  26 Batch   24/26   train_loss = 3.610
+Epoch  28 Batch   22/26   train_loss = 3.501
+Epoch  30 Batch   20/26   train_loss = 3.371
+Epoch  32 Batch   18/26   train_loss = 3.350
+Epoch  34 Batch   16/26   train_loss = 3.173
+Epoch  36 Batch   14/26   train_loss = 3.156
+Epoch  38 Batch   12/26   train_loss = 3.058
+Epoch  40 Batch   10/26   train_loss = 3.011
+Epoch  42 Batch    8/26   train_loss = 2.996
+Epoch  44 Batch    6/26   train_loss = 2.864
+Epoch  46 Batch    4/26   train_loss = 2.843
+Epoch  48 Batch    2/26   train_loss = 2.774
+Epoch  50 Batch    0/26   train_loss = 2.652
+Epoch  51 Batch   24/26   train_loss = 2.632
+Epoch  53 Batch   22/26   train_loss = 2.573
+Epoch  55 Batch   20/26   train_loss = 2.491
+Epoch  57 Batch   18/26   train_loss = 2.502
+Epoch  59 Batch   16/26   train_loss = 2.369
+Epoch  61 Batch   14/26   train_loss = 2.391
+Epoch  63 Batch   12/26   train_loss = 2.322
+Epoch  65 Batch   10/26   train_loss = 2.284
+Epoch  67 Batch    8/26   train_loss = 2.304
+Epoch  69 Batch    6/26   train_loss = 2.184
+Epoch  71 Batch    4/26   train_loss = 2.202
+Epoch  73 Batch    2/26   train_loss = 2.119
+Epoch  75 Batch    0/26   train_loss = 1.987
+Epoch  76 Batch   24/26   train_loss = 2.020
+Epoch  78 Batch   22/26   train_loss = 1.972
+Epoch  80 Batch   20/26   train_loss = 1.901
+Epoch  82 Batch   18/26   train_loss = 1.869
+Epoch  84 Batch   16/26   train_loss = 1.839
+Epoch  86 Batch   14/26   train_loss = 1.814
+Epoch  88 Batch   12/26   train_loss = 1.782
+Epoch  90 Batch   10/26   train_loss = 1.784
+Epoch  92 Batch    8/26   train_loss = 1.783
+Epoch  94 Batch    6/26   train_loss = 1.680
+Epoch  96 Batch    4/26   train_loss = 1.718
+Epoch  98 Batch    2/26   train_loss = 1.655
 Model Trained and Saved
 </pre>
 </div>
@@ -13297,7 +12847,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -13322,7 +12872,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -13360,7 +12910,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_tensors</span><span class="p">(</span><span class="n">loaded_graph</span><span class="p">):</span>
@@ -13415,7 +12965,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pick_word</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">):</span>
@@ -13471,7 +13021,7 @@ Model Trained and Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_length</span> <span class="o">=</span> <span class="mi">200</span>
@@ -13538,47 +13088,16 @@ Model Trained and Saved
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>INFO:tensorflow:Restoring parameters from ./save
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:(singing)
-moe_szyslak:
+moe_szyslak:(from tv) yeah.
+homer_simpson:(intrigued noise) oh, i don&#39;t know...
+homer_simpson:(firmly) marge, i need to be anything. i just sat there like to show you like to spend a fancy french restaurant?
+homer_simpson:(worried) son, that&#39;s great. if i find the ball. but that was great. in a micronesian for you, or a little girl who could attach to show you die.
+homer_simpson:(to moe) linda ronstadt? how&#39;d you call anything to make a grand, reckless friend!
+homer_simpson:(contented sigh) all right, everybody knows, it&#39;s just as you...
+apu_nahasapeemapetilon:(sings) a-b-(spanish&#34; j&#34; &#39;s)&#34; african princess,&#34; that&#39;s perfect, seymour. not like to give me to help me to you back to my birthday last one, france.
+moe_szyslak:(genuinely enthused) do i have to wait to know...
+homer_simpson:(worried) oh, wait...
+apu_nahasapeemapetilon: attention
 </pre>
 </div>
 </div>
